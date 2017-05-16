@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use SebastianBergmann\CodeCoverage\Report\Html\File;
+use Storage;
 
 class UserController extends Controller
 {
