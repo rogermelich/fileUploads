@@ -24,6 +24,7 @@ class UserControllerTest extends TestCase
         // Prepare
         Storage::fake('general');
         $faker = factory::create();
+
         $user = [
             'name' => $name = $faker->name,
             'email' => $email = $faker->email,
@@ -37,7 +38,7 @@ class UserControllerTest extends TestCase
         // Assert
         $response
             ->assertStatus(200)
-            ->assertExactJson([
+            ->assertJson([
                 'created' => true,
             ]);
 
