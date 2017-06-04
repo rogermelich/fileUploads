@@ -25259,6 +25259,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {
@@ -43944,16 +43951,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "id": "create-users-form"
     }
   }, [_c('form', {
-    attrs: {
-      "accept-charset": "UTF-8",
-      "enctype": "multipart/form-data"
-    },
     on: {
       "submit": function($event) {
         $event.preventDefault();
         _vm.submit($event)
       }
     }
+  }, [_c('div', {
+    staticClass: "box-body"
   }, [_c('div', {
     staticClass: "form-group"
   }, [_c('label', {
@@ -43968,10 +43973,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       expression: "name"
     }],
     attrs: {
-      "id": "name",
       "type": "text",
       "name": "name",
-      "placeholder": "Place your name here",
+      "id": "name",
+      "placeholder": "Name",
       "value": ""
     },
     domProps: {
@@ -43997,10 +44002,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       expression: "email"
     }],
     attrs: {
-      "id": "email",
-      "type": "text",
+      "type": "email",
       "name": "email",
-      "placeholder": "Place your email here",
+      "id": "email",
+      "placeholder": "Email",
       "value": ""
     },
     domProps: {
@@ -44026,10 +44031,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       expression: "password"
     }],
     attrs: {
-      "id": "password",
       "type": "password",
       "name": "password",
-      "placeholder": "Place your password here",
+      "id": "password",
+      "placeholder": "Password",
       "value": ""
     },
     domProps: {
@@ -44047,7 +44052,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "submit",
       "id": "create-user-button"
     }
-  }, [_vm._v("Create")])])])
+  }, [_vm._v("Create")])])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "form-group"
@@ -44057,9 +44062,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_vm._v("File: ")]), _vm._v(" "), _c('input', {
     attrs: {
-      "id": "file",
       "type": "file",
       "name": "file",
+      "id": "file",
       "value": ""
     }
   })])
