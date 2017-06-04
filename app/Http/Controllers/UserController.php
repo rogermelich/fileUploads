@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use File;
 use Illuminate\Http\Request;
-use SebastianBergmann\CodeCoverage\Report\Html\File;
 use Storage;
 
 class UserController extends Controller
@@ -18,7 +18,6 @@ class UserController extends Controller
     {
         //
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -28,37 +27,26 @@ class UserController extends Controller
     {
         //
     }
-
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return array
      */
     public function store(Request $request)
     {
-        dump($request->input('file'));
-
         $file = $request->file('file');
-        dump($file);
-
         $name = $file->getClientOriginalName();
-        dump($name);
-
         Storage::disk('local')->put($name, File::get($file));
-
         $databaseUser = [
-            'name' => $request->input('name'),
-            'email' => $request->input('email'),
-            'password' => $request->input('password'),
-            'file' => $request->input('file')
+            'name'     => $request->input('name'),
+            'email'    => $request->input('email'),
+            'password' => bcrypt($request->input('password')),
+            'file'     => $name,
         ];
-        dump($databaseUser);
-        User::create($request->only(['name', 'email', 'password', 'file']));
-
+        User::create($databaseUser);
         return ['created' => true];
     }
-
     /**
      * Display the specified resource.
      *
@@ -69,7 +57,6 @@ class UserController extends Controller
     {
         //
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -80,7 +67,6 @@ class UserController extends Controller
     {
         //
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -92,7 +78,6 @@ class UserController extends Controller
     {
         //
     }
-
     /**
      * Remove the specified resource from storage.
      *
